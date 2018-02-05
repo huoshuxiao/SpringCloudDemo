@@ -1,0 +1,53 @@
+server:
+  port: 8000
+#  port: ${random.int[8000,8010]}
+
+eureka:
+  # 更改服务实例名字，可以在一个主机中，启动多个端口相同但服务实例名不同的服务。(前提：端口必须不一致)
+  instance:
+#    instance-id: ${spring.application.name}:${random.int}
+    hostname: localhost
+  client:
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/
+
+zuul:
+  # 不响应route转发的请求
+#  ignored-services: * -- eureka上注册的application
+  # 响应route转发的请求
+  routes:
+    # 公网暴露的service url通过route转发
+    springcloud-service:
+      # 将Cookie等敏感信息传递到下游service
+      sensitiveHeaders:
+      # 在service服务的application文件中设置context-path
+      path: /springcloud-service/**
+      # eureka application name
+      serviceId: SPRINGCLOUDIMPL
+    search-service:
+      path: /search-service/**
+      serviceId: SEARCH
+    # 请求德url地址path和eureka上注册的application相同时的简写方式
+#    user-service: /user-service/**
+
+spring:
+  # http zipkin
+#  zipkin:
+#    base-url: http://${eureka.instance.hostname}:8020
+  sleuth:
+    sampler:
+      percentage: 1.0
+  rabbitmq:
+    host: ${eureka.instance.hostname}
+    port: 5672
+
+# 关闭安全认证
+management:
+  security:
+    enabled: false
+
+# properties
+cookie:
+   key:
+      token: token
+      userId: userId

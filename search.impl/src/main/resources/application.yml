@@ -1,0 +1,52 @@
+server:
+  port: 8030
+#  context-path: /search-service
+#  port: ${random.int[8030,8040]}
+
+eureka:
+  # 更改服务实例名字，可以在一个主机中，启动多个端口相同但服务实例名不同的服务。(前提：端口必须不一致)
+  instance:
+#    instance-id: ${spring.application.name}:${random.int}
+    hostname: localhost
+  client:
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/
+
+# feign fallback
+feign:
+  hystrix:
+    enabled: true
+
+# endpoint/health
+management:
+  security:
+    enabled: false
+
+spring:
+  # http zipkin
+#  zipkin:
+#    base-url: http://${eureka.instance.hostname}:8020
+  sleuth:
+    sampler:
+      percentage: 1
+  rabbitmq:
+    host: localhost
+    port: 5672
+  # spring cloud stream group (rabbitmq queue)
+  cloud:
+    stream:
+      bindings:
+        input:
+          context-type: application/json
+          # 自定义 rabbitmq Exchanges
+          destination: demo
+          # rabbitmq Queue Name
+          group: search
+        output:
+          context-type: application/json
+          destination: demo
+          group: search
+
+# for spring boot admin log tag
+logging:
+  file: ${spring.application.name}

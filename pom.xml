@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- The Basics -->
+    <groupId>com.sun.demo</groupId>
+    <artifactId>springcloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <dependencies>
+
+        <!-- spring cloud -->
+        <!-- rabbit (zipkin stream/stream/turbine stream) -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+        </dependency>
+
+        <!-- config server -->
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-config</artifactId>-->
+        <!--</dependency>-->
+        <!-- bus -->
+        <!-- rabbit exchange name is `springCloudBus` -->
+        <!-- bus dependency stream so comment stream dependency -->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--&lt;!&ndash;<artifactId>spring-cloud-starter-bus-kafka</artifactId>&ndash;&gt;-->
+        <!--<artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
+        <!--</dependency>-->
+        <!-- need move to config server project -->
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+        <!-- stream -->
+        <!-- sleuth inner dependency stream so commented-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-stream</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--&lt;!&ndash;<artifactId>spring-cloud-stream-binder-rabbit</artifactId>&ndash;&gt;-->
+            <!--<artifactId>spring-cloud-starter-stream-rabbit</artifactId>-->
+            <!--&lt;!&ndash;<artifactId>spring-cloud-starter-stream-kafka</artifactId>&ndash;&gt;-->
+        <!--</dependency>-->
+
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <!-- Logging -->
+        <!-- logstash -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.version}</version>
+        </dependency>
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <!-- service tracking -->
+        <!-- sleuth -->
+        <!-- Only Sleuth (log tracking) -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-sleuth</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- Sleuth with ZipKin via HTTP -->
+        <!-- comment dependency spring-cloud-starter-sleuth -->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-zipkin</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- Sleuth with ZipKin via Stream(rabbit) -->
+        <!-- Spring Cloud Sleuth, Stream(rabbit) and Zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>
+        </dependency>
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <!-- spring cloud netflix (Eureka/Hystrix/Feign/Ribbon/Zuul) -->
+        <!-- eureka client -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- Feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <!--<artifactId>spring-cloud-starter-feign</artifactId>-->
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- Ribbon -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
+        <!-- hystrix dashboard ui -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+        </dependency>
+        <!-- hystrix -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <!-- turbine HTTP-->
+        <!-- use @EnableTurbine in application class -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
+        </dependency>
+
+        <!-- hystrix stream -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-hystrix-stream</artifactId>-->
+        <!--</dependency>-->
+        <!-- turbine stream -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-turbine-stream</artifactId>-->
+        <!--</dependency>-->
+
+        <!-- Move to gateway project -->
+        <!-- Zuul -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-zuul</artifactId>-->
+        <!--</dependency>-->
+
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+        <!-- spring boot -->
+        <!-- hibernate-validator/jackson-databind/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- junit/mockito/spring test(TestNG) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+        <!-- jetty server -->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-jetty</artifactId>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- interact with JMX-beans for spring boot admin -->
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!--<version>2.0.0.M6</version>-->
+        <version>1.5.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix</artifactId>
+                <version>${spring.cloud.netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <!--<spring.cloud.version>Finchley.M5</spring.cloud.version>-->
+        <!--<spring.cloud.netflix.version>2.0.0.M5</spring.cloud.netflix.version>-->
+        <spring.cloud.version>Edgware.RELEASE</spring.cloud.version>
+        <spring.cloud.netflix.version>1.4.0.RELEASE</spring.cloud.netflix.version>
+        <lombok.version>1.16.20</lombok.version>
+        <logstash.version>4.11</logstash.version>
+    </properties>
+
+    <modules>
+        <module>eureka</module>
+        <module>zipkin</module>
+        <module>springbootadmin</module>
+        <module>gateway</module>
+        <module>search.impl</module>
+        <module>springcloud.impl</module>
+    </modules>
+
+    <!-- Build Settings -->
+    <!-- Package as an executable jar -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- generates the META-INF/build-info.properties -->
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- More Project Information -->
+    <name>SpringCloud Demo</name>
+    <description>SpringCloud Demo</description>
+
+</project>

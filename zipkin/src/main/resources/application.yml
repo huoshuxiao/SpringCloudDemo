@@ -1,0 +1,38 @@
+server:
+  port: 8020
+#  context-path: /springcloud-zipkin
+#  port: ${random.int[8020,8030]}
+
+eureka:
+  # 更改服务实例名字，可以在一个主机中，启动多个端口相同但服务实例名不同的服务。(前提：端口必须不一致)
+  instance:
+#    instance-id: ${spring.application.name}:${random.int}
+    hostname: localhost
+  client:
+    service-url:
+      default-zone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/
+
+management:
+  security:
+    enabled: false
+
+zipkin:
+  storage:
+    type: mysql
+
+spring:
+  rabbitmq:
+    host: ${eureka.instance.hostname}
+    port: 5672
+  datasource:
+    # need to create zipkin schema
+#    schema: classpath:/mysql.sql
+    url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+#    initialize: true
+#    continue-on-error: true
+  # ignore zipkin server ui tracking
+  sleuth:
+    enabled: false

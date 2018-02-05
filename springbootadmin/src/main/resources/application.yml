@@ -1,0 +1,41 @@
+server:
+  port: 8040
+info:
+  version: @project.version@
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+# endpoint
+management:
+  security:
+    enabled: false
+
+turbine:
+  # turbine HTTP
+  # turbine monitor service
+  app-config: SpringCloudImpl
+  # mast be setting cluster name
+  cluster-name-expression: "'default'"
+#  cluster-name-expression: metadata['cluster']
+#  cluster-name-expression: new String("default")
+#  stream:
+#    port: 8989
+
+spring:
+  boot:
+    admin:
+      routes:
+        # hystrix.stream UI(hystrix.stream) / turbine UI(turbine.stream) / activiti UI(activiti)
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,turbine.stream,activiti
+      turbine:
+        clusters: default
+        # turbine HTTP
+        # turbine service id that is spring boot admin service id
+        location: ${spring.application.name}
+        # turbine stream
+#        location: http://localhost:${turbine.stream.port}/
+  # ignore tracking for zipkin server
+#  sleuth:
+#    enabled: false
