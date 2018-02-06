@@ -12,6 +12,7 @@ eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 0
 
+# 不为zipkin提供数据
 spring:
   sleuth:
     sampler:
