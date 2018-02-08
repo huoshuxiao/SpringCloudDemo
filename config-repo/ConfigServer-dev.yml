@@ -1,0 +1,10 @@
+env: dev
+
+properties:
+  configserver:
+    port1: 9888
+  eureka:
+    hostname1: localhost
+    port1: 8861
+    hostname2: localhost
+    port2: 8862
