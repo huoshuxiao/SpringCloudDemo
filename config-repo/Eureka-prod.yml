@@ -1,0 +1,8 @@
+env: prod
+
+properties:
+  eureka:
+    hostname1: localhost
+    port1: 8961
+    hostname2: localhost
+    port2: 8962
