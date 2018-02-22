@@ -1,1 +1,8 @@
-env: docker
+env: default
+
+properties:
+  eureka:
+    hostname1: localhost
+    port1: 8761
+    hostname2: localhost
+    port2: 8762

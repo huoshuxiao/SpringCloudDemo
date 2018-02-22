@@ -3,6 +3,6 @@ env: prod
 properties:
   eureka:
     hostname1: localhost
-    port1: 8961
+    port1: 10761
     hostname2: localhost
-    port2: 8962
+    port2: 10762
