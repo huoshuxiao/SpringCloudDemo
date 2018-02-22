@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+properties:
+  eureka:
+    hostname1: localhost
+    port1: 8761
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${properties.eureka.hostname1}:${properties.eureka.port1}/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          # git repository
+          uri: https://github.com/huoshuxiao/SpringCloudDemo
+          # git branch / git sub model
+          search-paths: config-repo

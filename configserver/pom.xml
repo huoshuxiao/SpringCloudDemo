@@ -17,4 +17,23 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+
+		<!-- bus -->
+		<!-- rabbit exchange name is `springCloudBus` -->
+		<!-- bus dependencied stream so can be commented stream dependency -->
+        <!-- endpoint POST /bus/refresh -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<!--<artifactId>spring-cloud-starter-bus-kafka</artifactId>-->
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
+
+	</dependencies>
+
 </project>
