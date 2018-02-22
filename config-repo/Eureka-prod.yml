@@ -2,7 +2,5 @@ env: prod
 
 properties:
   eureka:
-    hostname1: localhost
-    port1: 10761
-    hostname2: localhost
-    port2: 10762
+    port: 28761
+    url: http://localhost:28761/eureka/,http://localhost:28762/eureka/

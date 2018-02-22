@@ -1,0 +1,13 @@
+env: prod
+
+properties:
+  eureka:
+   url: http://localhost:28761/eureka/,http://localhost:28762/eureka/
+  zipkin:
+    port: 28020
+  rabbitmq:
+    hostname: localhost
+    port: 5672
+  mysql:
+    hostname: localhost
+    port: 3306

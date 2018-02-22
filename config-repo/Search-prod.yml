@@ -1,10 +1,10 @@
-env: default
+env: prod
 
 properties:
   eureka:
-    url: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+    url: http://localhost:28761/eureka/,http://localhost:28762/eureka/
   springcloudimpl:
-    port: 8010
+    port: 28030
   turbine:
     clusternameexpression: "'default'"
   rabbitmq:

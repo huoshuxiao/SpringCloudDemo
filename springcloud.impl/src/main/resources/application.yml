@@ -3,18 +3,28 @@ server:
 #  context-path: /springcloud-service
 #  port: ${random.int[8010,8020]}
 
+properties:
+  eureka:
+    hostname1: localhost
+    port1: 8761
+    hostname2: localhost
+    port2: 8762
+  rabbitmq:
+    host: localhost
+    port: 5672
+
 # use pom file properties
 info:
   version: @project.version@
 
 eureka:
   # 更改服务实例名字，可以在一个主机中，启动多个端口相同但服务实例名不同的服务。(前提：端口必须不一致)
-  instance:
-#    instance-id: ${spring.application.name}:${random.int}
-    hostname: localhost
+#  instance:
+##    instance-id: ${spring.application.name}:${random.int}
+#    hostname: localhost
   client:
     service-url:
-      default-zone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/
+      default-zone: http://${properties.eureka.hostname1}:${properties.eureka.port1}/eureka/,http://${properties.eureka.hostname2}:${properties.eureka.port2}/eureka/
 
 # endpoint
 management:
@@ -35,8 +45,8 @@ turbine:
 # spring cloud steam/sleuth
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
+    host: ${properties.rabbitmq.host}
+    port: ${properties.rabbitmq.port}
   # http zipkin
 #  zipkin:
 #    base-url: http://${eureka.instance.hostname}:8020

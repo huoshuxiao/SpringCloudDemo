@@ -2,7 +2,11 @@ env: dev
 
 properties:
   eureka:
-    hostname1: localhost
-    port1: 9761
-    hostname2: localhost
-    port2: 9762
+    url: http://localhost:18761/eureka/,http://localhost:18762/eureka/
+  springcloudimpl:
+    port: 18010
+  turbine:
+    clusternameexpression: "'default'"
+  rabbitmq:
+    hostname: localhost
+    port: 5672
