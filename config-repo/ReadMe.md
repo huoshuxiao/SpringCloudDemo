@@ -37,6 +37,7 @@
 | SpringCloudImpl | default |  8010 |
 | SpringCloudImpl |   dev   | 18010 |
 | SpringCloudImpl |   prod  | 28010 |
+| ConfigServer |   -  | 8888 |
 | Rabbitmq |   -  | 5672 |
 | MySQL |   -  | 3306 |
 | LogStash |   -  | 5044 |

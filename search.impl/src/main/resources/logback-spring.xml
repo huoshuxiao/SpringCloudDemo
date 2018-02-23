@@ -90,6 +90,7 @@
                 <pattern>
                     <pattern>
                         {
+                        "appname": "@project.artifactId@:-${springAppName}",
                         "severity": "%level",
                         "service": "${springAppName:-}",
                         "trace": "%X{X-B3-TraceId:-}",

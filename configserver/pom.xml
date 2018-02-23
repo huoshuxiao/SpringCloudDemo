@@ -28,6 +28,8 @@
 		<!-- rabbit exchange name is `springCloudBus` -->
 		<!-- bus dependencied stream so can be commented stream dependency -->
         <!-- endpoint POST /bus/refresh -->
+		<!-- /bus/refresh?destination=customers:9000 -->
+		<!-- spring.application.name, active profiles and server.port -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<!--<artifactId>spring-cloud-starter-bus-kafka</artifactId>-->

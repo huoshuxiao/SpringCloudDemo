@@ -7,6 +7,7 @@ info:
 eureka:
   client:
     serviceUrl:
+#      defaultZone: http://localhost:18761/eureka/,http://localhost:18762/eureka/
       defaultZone: ${properties.eureka.url}
 
 # endpoint
@@ -18,13 +19,17 @@ turbine:
   # turbine HTTP
   # turbine monitor hystrix service
   app-config: ${properties.springbootadmin.turbine.appconfigs}
-#  SpringCloudImpl,Search
+# app-config: SpringCloudImpl,Search
   # mast be setting cluster name
   cluster-name-expression: ${properties.springbootadmin.turbine.clusternameexpression}
+#  cluster-name-expression: "'default'"
 #  stream:
 #    port: 8989
 
 spring:
+  # ignore tracking for zipkin server
+  sleuth:
+    enabled: false
   boot:
     admin:
       monitor:
@@ -39,9 +44,6 @@ spring:
         location: ${spring.application.name}
         # turbine stream
 #        location: http://localhost:${turbine.stream.port}/
-  # ignore tracking for zipkin server
-  sleuth:
-    enabled: false
 
 # for log
 logging:
