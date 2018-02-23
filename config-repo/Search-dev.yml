@@ -3,7 +3,7 @@ env: dev
 properties:
   eureka:
     url: http://localhost:18761/eureka/,http://localhost:18762/eureka/
-  springcloudimpl:
+  search:
     port: 18030
   turbine:
     clusternameexpression: "'default'"
