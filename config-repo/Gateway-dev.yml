@@ -2,7 +2,7 @@ env: dev
 
 properties:
   eureka:
-    url: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+    url: http://localhost:18761/eureka/,http://localhost:18762/eureka/
   gateway:
     hostname: localhost
     port: 18000
