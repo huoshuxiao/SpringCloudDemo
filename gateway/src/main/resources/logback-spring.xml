@@ -49,7 +49,7 @@
             <fileNamePattern>${LOG_FILE}.json.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <maxHistory>7</maxHistory>
         </rollingPolicy>
-        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder" charset="UTF-8">
             <providers>
                 <timestamp>
                     <timeZone>UTC</timeZone>
@@ -74,18 +74,19 @@
         </encoder>
     </appender>
 
-    <!-- ELK (need RabbitMQ dependency, Elasticsearch and Kibana) -->
+    <!-- ELK -->
     <appender name="elk" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <!-- logstash server -->
-        <destination>localhost:5044</destination>
-        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+        <destination>localhost:5000</destination>
+        <keepAliveDuration>5 minutes</keepAliveDuration>
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder" charset="UTF-8">
             <providers>
                 <timestamp>
                     <timeZone>UTC</timeZone>
                 </timestamp>
-                <mdc />
-                <context />
-                <logLevel />
+                <mdc />         <!-- MDC variables on the Thread will be written as JSON fields -->
+                <context />     <!-- Outputs entries from logback's context -->
+                <logLevel />    <!-- Logstash json format version, the @version field in the output -->
                 <loggerName />
                 <pattern>
                     <pattern>
@@ -106,8 +107,8 @@
                 </pattern>
                 <threadName />
                 <message />
-                <logstashMarkers />
-                <stackTrace />
+                <logstashMarkers />     <!-- Useful so we can add extra information for specific log lines as Markers-->
+                <stackTrace />          <!-- or through StructuredArguments-->
             </providers>
         </encoder>
     </appender>

@@ -19,15 +19,15 @@
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
 
-        <!-- config server -->
+        <!-- config server client -->
         <!--++++++++++++++++++++++++++++++++++++++++++++++++++-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-config</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
         <!-- bus -->
         <!-- rabbit exchange name is `springCloudBus` -->
-        <!-- bus dependency stream so comment stream dependency -->
+        <!-- bus dependencied stream so can be commented stream dependency -->
         <!--<dependency>-->
         <!--<groupId>org.springframework.cloud</groupId>-->
         <!--&lt;!&ndash;<artifactId>spring-cloud-starter-bus-kafka</artifactId>&ndash;&gt;-->
@@ -226,6 +226,7 @@
     </properties>
 
     <modules>
+        <module>configserver</module>
         <module>eureka</module>
         <module>zipkin</module>
         <module>springbootadmin</module>

@@ -1,0 +1,29 @@
+# ConfigServer Service和Eureka如何多环境匹配
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:18761/eureka/,http://localhost:18762/eureka/
+
+management:
+  security:
+    enabled: false
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          # git repository
+          uri: https://github.com/huoshuxiao/SpringCloudDemo
+          # git branch / git sub model
+          search-paths: config-repo
+  sleuth:
+    enabled: false
+    sampler:
+      percentage: 0.0
+
+logging:
+  file: ${spring.application.name}

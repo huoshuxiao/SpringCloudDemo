@@ -1,5 +1,5 @@
 server:
-  port: 8020
+  port: ${properties.zipkin.port}
 #  context-path: /springcloud-zipkin
 #  port: ${random.int[8020,8030]}
 
@@ -9,8 +9,8 @@ eureka:
 ##    instance-id: ${spring.application.name}:${random.int}
 #    hostname: localhost
   client:
-    service-url:
-      default-zone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+    serviceUrl:
+      defaultZone: ${properties.eureka.url}
 
 management:
   security:
@@ -25,7 +25,7 @@ spring:
     host: ${properties.rabbitmq.hostname}
     port: ${properties.rabbitmq.port}
   datasource:
-    # need to create zipkin schema
+    # need to create zipkin schema in mysql
 #    schema: classpath:/mysql.sql
     url: jdbc:mysql://${properties.mysql.hostname}:${properties.mysql.port}/zipkin?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: root

@@ -4,6 +4,7 @@
 * Spring Boot : 1.5.9.RELEASE
 * Spring CLoud : Edgware.RELEASE
 * Spring CLoud Netflix : 1.4.0.RELEASE
+* Spring Boot Admin : 1.5.6
 
 ## 使用组件
 * Config : 配置中心
@@ -16,7 +17,7 @@
 * Stream : 消息中间件
 * Zipkin : 链路追踪
 * Sleuth : 日志
-* Spring Boot Admin : Monitor(Hystrix Dashborad/Turbine Dashborad/Logger etc)
+* Spring Boot Admin : Monitor(Hystrix Dashborad/Turbine Dashborad/Bus/Logger etc...)
 
 ## Docker image
 * sebp/elk : 日志分析

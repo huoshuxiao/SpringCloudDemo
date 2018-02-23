@@ -1,0 +1,1 @@
+## 通过设置bootstrap中的spring.profiles.active指定环境，application文件区别在eureka port不同

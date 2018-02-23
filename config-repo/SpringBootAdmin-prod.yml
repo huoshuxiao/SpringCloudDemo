@@ -1,0 +1,12 @@
+env: prod
+
+properties:
+  eureka:
+    url: http://localhost:28761/eureka/,http://localhost:28762/eureka/
+  springbootadmin:
+    hostname: localhost
+    port: 28040
+    turbine:
+      appconfigs: SpringCloudImpl,Search
+      clusternameexpression: "'default'"
+      clusters: default

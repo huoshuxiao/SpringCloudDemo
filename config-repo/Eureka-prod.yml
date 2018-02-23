@@ -1,0 +1,6 @@
+env: prod
+
+properties:
+  eureka:
+    port: 28761
+    url: http://localhost:28761/eureka/,http://localhost:28762/eureka/

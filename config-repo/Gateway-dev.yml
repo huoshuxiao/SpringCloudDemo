@@ -1,0 +1,11 @@
+env: dev
+
+properties:
+  eureka:
+    url: http://localhost:18761/eureka/,http://localhost:18762/eureka/
+  gateway:
+    hostname: localhost
+    port: 18000
+  rabbitmq:
+    hostname: localhost
+    port: 5672

@@ -1,0 +1,6 @@
+env: dev
+
+properties:
+  eureka:
+    port: 18761
+    url: http://localhost:18761/eureka/,http://localhost:18762/eureka/

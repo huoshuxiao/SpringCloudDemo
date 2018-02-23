@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <!-- spring boot admin log tab -->
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
     <jmxConfigurator/>
