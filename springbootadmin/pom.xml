@@ -60,6 +60,6 @@
 	</dependencies>
 
 	<properties>
-		<springbootadmin.version>1.5.6</springbootadmin.version>
+		<springbootadmin.version>3.1.2</springbootadmin.version>
 	</properties>
 </project>
